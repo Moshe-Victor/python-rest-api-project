@@ -1,5 +1,8 @@
+import secrets
+
 from flask import Flask
 from flask_smorest import Api
+from flask_jwt_extended import JWTManager
 
 import models
 
@@ -24,6 +27,9 @@ def create_app(db_url=None):
     app.config["PROPAGATE_EXCEPTIONS"] = True
     db.init_app(app)
     api = Api(app)
+
+    app.config["JWT_SECRET_KEY"] = "68005044908270158586928693528171676732"
+    jwt = JWTManager
 
     with app.app_context():
         db.create_all()
