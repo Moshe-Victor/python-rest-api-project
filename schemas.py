@@ -40,4 +40,4 @@ class TagAndItemSchema(Schema):
 class UserSchema(PlainItemSchema):
     id = fields.Int(dump_only=True)
     username = fields.Str(required=True)
-    password = fields.Str(required=True, load_only=True)
+    password = fields.Str(required=True)
